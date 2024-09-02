@@ -1,0 +1,45 @@
+From 72c143b9d4ebd9b3a0a6e54c5401ba6fa98c0ca9 Mon Sep 17 00:00:00 2001
+From: wjyrich <1071633242@qq.com>
+Date: Fri, 16 Aug 2024 15:43:47 +0800
+Subject: [PATCH] install
+
+---
+ CMakeLists.txt     | 9 +++++++++
+ oplpctools.desktop | 8 ++++++++
+ 2 files changed, 17 insertions(+)
+ create mode 100644 oplpctools.desktop
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 8625548..13c1605 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -273,3 +273,12 @@ add_custom_target(misc SOURCES
+     release/assets/linux/make-desktop-file.sh
+     release/assets/linux/oplpctools.sh
+ )
++
++install(TARGETS oplpctools
++             DESTINATION bin)
++install(FILES src/OplPcTools/Resources/images/no-icon.png
++        DESTINATION share/icons)
++
++
++install(FILES oplpctools.desktop
++            DESTINATION share/applications)
+diff --git a/oplpctools.desktop b/oplpctools.desktop
+new file mode 100644
+index 0000000..3de4cc1
+--- /dev/null
++++ b/oplpctools.desktop
+@@ -0,0 +1,8 @@
++[Desktop Entry]
++Exec=oplpctools
++Icon=no-icon
++Name=oplpctools
++StartupNotify=true
++Terminal=false
++Type=Application
++Categories=Game;Utility
+-- 
+2.43.4
+
